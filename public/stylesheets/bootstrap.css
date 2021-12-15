@@ -1,0 +1,8 @@
+#homeFooter {
+    color: 	#6c757d;
+    text-decoration: none;
+}
+
+#homeFooter:hover {
+    color: #adb5bd;
+}

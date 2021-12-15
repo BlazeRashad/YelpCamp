@@ -30,8 +30,14 @@ body {
     border-bottom-color:white ;
 }
 
-.btn-secondary, .btn-secondary:hover{
+.btn-secondary {
     color: #333;
     text-shadow: none;
     font-weight: bold;
+}
+
+.btn-secondary:hover{
+    color: #333;
+    box-shadow: 0 0.3em 0.7em -0.2em #f1faee;
+    transform: translateY(-0.15em);
 }
