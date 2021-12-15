@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, ("public"))));
 app.use(mongoSanitize());
 app.use(helmet());
 
-const secret = process.env.SECRET || "thisshouldbeabettersecret";
+const secret = process.env.SECRET;
 
 const store = MongoDBStore.create({
     mongoUrl: dbUrl,
@@ -64,7 +64,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        // secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
