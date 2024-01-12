@@ -10,7 +10,7 @@ const methodOverride = require("method-override");
 const helmet = require("helmet");
 
 const session = require("express-session");
-const MongoDBStore = require("connect-mongo");
+const MongoStore = require("connect-mongo");
 
 const flash = require("connect-flash");
 const passport = require("passport");
@@ -42,15 +42,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, ("public"))));
 app.use(mongoSanitize());
-app.use(helmet());
+app.use(helmet({
+    crossOriginEmbeddedPolicy: false
+}));
 
 const secret = process.env.SECRET;
 
-const store = MongoDBStore.create({
+const store = MongoStore.create({
     mongoUrl: dbUrl,
-    secret,
-    touchAfter: 24 * 60 * 60
-})
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret
+    }
+});
 
 store.on("error", function (e) {
     console.log("SESSION STORE ERROR", e)
@@ -64,7 +68,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        secure: true,
+        // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
@@ -109,7 +113,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/deohcgfbq/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                "https://res.cloudinary.com/deohcgfbq/",
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
