@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+        url("https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
     background-size: cover;
     background-position: center;
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
@@ -21,14 +21,14 @@ body {
     border-bottom: 0.25rem solid transparent;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: rgba(232, 232, 228, 0.9);
-    border-bottom-color:rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-link.active {
     color: white;
-    border-bottom-color:white ;
+    border-bottom-color: white;
 }
 
 .btn-secondary {
@@ -37,7 +37,7 @@ body {
     font-weight: bold;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
     color: #00121f;
     box-shadow: 0 0.3em 0.7em -0.2em #f1faee;
     transform: translateY(-0.15em);
@@ -52,5 +52,5 @@ body {
     position: absolute;
     margin: 0 5px 5px 0;
     width: 100px;
-    top:10px;
+    top: 10px;
 }
